@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مسك البقيع | متجر العطور</title>
+    <meta
+      name="description"
+      content="متجر مسك البقيع للعطور والمباخر والهدايا، يقدم عطور خليجية وفرنسية عالية الجودة."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="logo-wrap">
+          <div class="logo-badge">م</div>
+          <div>
+            <p class="brand-name">مسك البقيع</p>
+            <small>Perfume Boutique</small>
+          </div>
+        </div>
+        <nav class="main-nav" aria-label="التنقل الرئيسي">
+          <a href="#home">الرئيسية</a>
+          <a href="#categories">الأقسام</a>
+          <a href="#products">المنتجات</a>
+          <a href="#offers">العروض</a>
+          <a href="#contact">تواصل معنا</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="icon-btn" aria-label="بحث">⌕</button>
+          <button class="cart-btn" aria-label="سلة المشتريات">
+            <span>السلة</span>
+            <span id="cart-count" class="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">تجربة عطر فاخرة</span>
+            <h1>مسك البقيع للعطور</h1>
+            <p>
+              اكتشف مجموعتنا الراقية من العطور الخليجية والفرنسية، والمنتجات
+              المميزة للمباخر والهدايا المصممة ليومك الفخم.
+            </p>
+            <div class="cta-row">
+              <a href="#products" class="primary-btn">تسوق الآن</a>
+              <a href="#categories" class="secondary-btn">استكشف الأقسام</a>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <strong>+20k</strong>
+                <span>عميل سعيد</span>
+              </div>
+              <div>
+                <strong>350+</strong>
+                <span>عطر مميز</span>
+              </div>
+              <div>
+                <strong>24/7</strong>
+                <span>خدمة عملاء</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="عرض منتجات العطور">
+            <div class="perfume-card main-card">
+              <div class="bottle bottle-large">
+                <span class="cap"></span>
+              </div>
+              <div class="product-tag">أفضل المبيعات</div>
+            </div>
+            <div class="perfume-card mini-card mini-one">
+              <div class="bottle bottle-small"></div>
+            </div>
+            <div class="perfume-card mini-card mini-two">
+              <div class="bottle bottle-small muted"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="categories" class="categories section-space">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">أقسامنا</span>
+            <h2>استمتع باختيارك من أصنافنا المميزة</h2>
+          </div>
+
+          <div class="category-grid">
+            <article class="category-card category-gulf">
+              <div class="icon">✦</div>
+              <h3>عطور خليجية</h3>
+              <p>رائحة عميقة وفخمة تعكس الطابع العربي الأصيل.</p>
+            </article>
+
+            <article class="category-card category-french">
+              <div class="icon">❀</div>
+              <h3>عطور فرنسية</h3>
+              <p>أناقة فرنسية راقية مع مزيج من الفواحة والدفء.</p>
+            </article>
+
+            <article class="category-card category-incense">
+              <div class="icon">◌</div>
+              <h3>المباخر</h3>
+              <p>مباخر عالية الجودة لتحويل منزلك إلى أجواء مميزة.</p>
+            </article>
+
+            <article class="category-card category-gifts">
+              <div class="icon">✧</div>
+              <h3>الهدايا</h3>
+              <p>علبة هدايا أنيقة مناسبة للافراح والمناسبات الخاصة.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="products section-space">
+        <div class="container">
+          <div class="section-heading split-heading">
+            <div>
+              <span class="eyebrow">منتجاتنا</span>
+              <h2>أشهر المنتجات المميزة</h2>
+            </div>
+            <div class="filter-bar" aria-label="تصفية المنتجات">
+              <button class="filter-btn active" data-filter="all">الكل</button>
+              <button class="filter-btn" data-filter="gulf">عطور خليجية</button>
+              <button class="filter-btn" data-filter="french">عطور فرنسية</button>
+              <button class="filter-btn" data-filter="incense">المباخر</button>
+              <button class="filter-btn" data-filter="gifts">الهدايا</button>
+            </div>
+          </div>
+
+          <div id="products-grid" class="product-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="offers" class="promo section-space">
+        <div class="container promo-box">
+          <div>
+            <span class="eyebrow">عرض خاص</span>
+            <h2>خصم 30% على طلبك الأول</h2>
+            <p>
+              اكتشف تشكيلة جديدة من العطور والهدية المختارة بعناية وتجربة
+              شراء سهلة وسريعة.
+            </p>
+          </div>
+          <a href="#products" class="primary-btn">استفد من العرض</a>
+        </div>
+      </section>
+
+      <section class="features section-space">
+        <div class="container">
+          <div class="feature-grid">
+            <div class="feature-item">
+              <div class="feature-icon">🚚</div>
+              <h3>توصيل سريع</h3>
+              <p>خدمة توصيل داخل المدن في وقت قياسي.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">💎</div>
+              <h3>جودة مضمونة</h3>
+              <p>منتجات أصلية مختارة بعناية وتغليف فاخر.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🎁</div>
+              <h3>هدية مميزة</h3>
+              <p>حلول هدية أنيقة لعيد الميلاد والأعياد والاحتفالات.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <h3>مسك البقيع</h3>
+          <p>عطور فاخرة، مباخر أنيقة، وهدايا بلمسة مميزة.</p>
+        </div>
+        <div>
+          <h4>تواصل معنا</h4>
+          <ul>
+            <li>055 123 4567</li>
+            <li>info@maskalbqae.com</li>
+            <li>الرياض - المملكة العربية السعودية</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container copyright">
+        <p>© 2026 جميع الحقوق محفوظة - متجر مسك البقيع</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
