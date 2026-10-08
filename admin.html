@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - مسك البقيع</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="admin-styles.css" />
+</head>
+<body>
+    <div class="login-container" id="loginContainer">
+        <div class="login-card">
+            <div class="logo-badge">م</div>
+            <h1>لوحة التحكم</h1>
+            <p>مسك البقيع - إدارة المتجر</p>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">اسم المستخدم</label>
+                    <input type="text" id="username" placeholder="أدخل اسم المستخدم" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">كلمة المرور</label>
+                    <input type="password" id="password" placeholder="أدخل كلمة المرور" required>
+                </div>
+                
+                <button type="submit" class="login-btn">دخول</button>
+                <p id="loginError" class="error-msg"></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="admin-dashboard hidden" id="adminDashboard">
+        <header class="admin-header">
+            <div class="header-left">
+                <h1>لوحة التحكم - مسك البقيع</h1>
+            </div>
+            <div class="header-right">
+                <span id="adminUsername"></span>
+                <button class="logout-btn" id="logoutBtn">تسجيل الخروج</button>
+            </div>
+        </header>
+
+        <div class="admin-container">
+            <nav class="admin-nav">
+                <button class="nav-btn active" data-tab="products">
+                    <span>📦</span>
+                    <span>المنتجات</span>
+                </button>
+                <button class="nav-btn" data-tab="add-product">
+                    <span>➕</span>
+                    <span>إضافة منتج</span>
+                </button>
+                <button class="nav-btn" data-tab="categories">
+                    <span>📂</span>
+                    <span>الأقسام</span>
+                </button>
+                <button class="nav-btn" data-tab="stats">
+                    <span>📊</span>
+                    <span>الإحصائيات</span>
+                </button>
+            </nav>
+
+            <main class="admin-content">
+                <!-- قسم المنتجات -->
+                <section id="products" class="tab-content active">
+                    <div class="section-header">
+                        <h2>المنتجات</h2>
+                        <input type="text" id="searchInput" placeholder="بحث عن منتج..." class="search-input">
+                    </div>
+                    <div id="productsList" class="products-list"></div>
+                </section>
+
+                <!-- قسم إضافة منتج -->
+                <section id="add-product" class="tab-content">
+                    <div class="section-header">
+                        <h2>إضافة منتج جديد</h2>
+                    </div>
+                    <form id="addProductForm" class="product-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>اسم المنتج</label>
+                                <input type="text" id="productName" placeholder="أدخل اسم المنتج" required>
+                            </div>
+                            <div class="form-group">
+                                <label>السعر</label>
+                                <input type="number" id="productPrice" placeholder="أدخل السعر" min="0" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>القسم</label>
+                                <select id="productCategory" required>
+                                    <option value="gulf">عطور خليجية</option>
+                                    <option value="french">عطور فرنسية</option>
+                                    <option value="incense">مباخر</option>
+                                    <option value="gifts">هدايا</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>التقييم</label>
+                                <input type="number" id="productRating" placeholder="التقييم (0-5)" min="0" max="5" step="0.1" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>الشارة</label>
+                            <input type="text" id="productBadge" placeholder="مثال: الأكثر طلباً" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>الوصف</label>
+                            <textarea id="productDescription" placeholder="أدخل وصف المنتج" rows="4" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">إضافة المنتج</button>
+                    </form>
+                </section>
+
+                <!-- قسم الأقسام -->
+                <section id="categories" class="tab-content">
+                    <div class="section-header">
+                        <h2>الأقسام</h2>
+                    </div>
+                    <div class="categories-grid">
+                        <div class="category-card">
+                            <h3>عطور خليجية</h3>
+                            <p id="gulfCount">0</p>
+                            <span>منتج</span>
+                        </div>
+                        <div class="category-card">
+                            <h3>عطور فرنسية</h3>
+                            <p id="frenchCount">0</p>
+                            <span>منتج</span>
+                        </div>
+                        <div class="category-card">
+                            <h3>مباخر</h3>
+                            <p id="incenseCount">0</p>
+                            <span>منتج</span>
+                        </div>
+                        <div class="category-card">
+                            <h3>هدايا</h3>
+                            <p id="giftsCount">0</p>
+                            <span>منتج</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- قسم الإحصائيات -->
+                <section id="stats" class="tab-content">
+                    <div class="section-header">
+                        <h2>الإحصائيات</h2>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">📦</div>
+                            <div class="stat-info">
+                                <p id="totalProducts">0</p>
+                                <span>إجمالي المنتجات</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-info">
+                                <p id="avgRating">0</p>
+                                <span>متوسط التقييم</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-info">
+                                <p id="avgPrice">0</p>
+                                <span>متوسط السعر</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>تعديل المنتج</h2>
+                <button class="close-btn" id="closeModal">×</button>
+            </div>
+            <form id="editProductForm" class="product-form">
+                <input type="hidden" id="editProductId">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>اسم المنتج</label>
+                        <input type="text" id="editProductName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>السعر</label>
+                        <input type="number" id="editProductPrice" min="0" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>القسم</label>
+                        <select id="editProductCategory" required>
+                            <option value="gulf">عطور خليجية</option>
+                            <option value="french">عطور فرنسية</option>
+                            <option value="incense">مباخر</option>
+                            <option value="gifts">هدايا</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>التقييم</label>
+                        <input type="number" id="editProductRating" min="0" max="5" step="0.1" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>الشارة</label>
+                    <input type="text" id="editProductBadge" required>
+                </div>
+
+                <div class="form-group">
+                    <label>الوصف</label>
+                    <textarea id="editProductDescription" rows="4" required></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">حفظ التعديلات</button>
+                    <button type="button" class="delete-btn" id="deleteBtn">حذف المنتج</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
